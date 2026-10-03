@@ -11,10 +11,7 @@ import {
   SafeAreaView,
 } from 'react-native-safe-area-context';
 
-import MapView, {
-  Marker,
-  Polyline,
-} from 'react-native-maps';
+import { RouteMap } from '../components/RouteMap';
 
 import { AppHeader } from '../components/AppHeader';
 
@@ -72,47 +69,14 @@ export function LiveMapScreen() {
 
 
         <View style={styles.mapContainer}>
-
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: 50.067,
-              longitude: 19.97,
-              latitudeDelta: 0.045,
-              longitudeDelta: 0.045,
+          <RouteMap
+            driver={{
+              latitude: mockDriver.latitude,
+              longitude: mockDriver.longitude,
             }}
-          >
-
-            <Marker
-              coordinate={{
-                latitude: mockDriver.latitude,
-                longitude: mockDriver.longitude,
-              }}
-              title="You"
-            />
-
-            {mockIntersections.map((intersection) => (
-
-              <Marker
-                key={intersection.id}
-                coordinate={{
-                  latitude: intersection.latitude,
-                  longitude: intersection.longitude,
-                }}
-                title={intersection.name}
-                description={`${intersection.distanceMeters} m`}
-              />
-
-            ))}
-
-            <Polyline
-              coordinates={routeCoordinates}
-              strokeColor={colors.primary}
-              strokeWidth={6}
-            />
-
-          </MapView>
-
+            intersections={mockIntersections}
+            routeCoordinates={routeCoordinates}
+          />
         </View>
 
 
