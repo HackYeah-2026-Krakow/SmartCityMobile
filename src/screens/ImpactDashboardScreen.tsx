@@ -12,6 +12,7 @@ import {
 } from 'react-native-safe-area-context';
 
 import { AppCard } from '../components/AppCard';
+import { AppHeader } from '../components/AppHeader';
 
 import {
   impactMetrics,
