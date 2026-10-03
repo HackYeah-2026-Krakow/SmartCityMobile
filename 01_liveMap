@@ -1,0 +1,1772 @@
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/live_map"
+android:layout_width="393dp"
+android:layout_height="852dp"
+android:clipToOutline="true"
+android:background="#0A0D0C"
+ />
+
+/* 01 Live Map */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: relative;
+width: 393px;
+height: 852px;
+
+background: #0A0D0C;
+
+
+/* Status Bar */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 12px 28px 0px 34px;
+
+width: 393px;
+height: 54px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Time */
+
+width: 34px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* System Icons */
+
+width: 76px;
+height: 14px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 96.05%;
+top: 64.29%;
+bottom: 7.14%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 6.58%;
+right: 89.47%;
+top: 46.43%;
+bottom: 7.14%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 13.16%;
+right: 82.89%;
+top: 28.57%;
+bottom: 7.14%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 19.74%;
+right: 76.32%;
+top: 7.14%;
+bottom: 7.14%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 32.89%;
+right: 48.68%;
+top: 18.15%;
+bottom: 61.43%;
+
+border: 1.8px solid #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 36.58%;
+right: 52.37%;
+top: 46.32%;
+bottom: 41.43%;
+
+border: 1.8px solid #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 40.13%;
+right: 55.92%;
+top: 70.71%;
+bottom: 7.86%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 62.5%;
+right: 5.92%;
+top: 10.71%;
+bottom: 10.71%;
+
+border: 1px solid rgba(255, 255, 255, 0.4);
+
+
+/* Vector */
+
+position: absolute;
+left: 65.13%;
+right: 8.55%;
+top: 25%;
+bottom: 25%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 96.05%;
+right: 1.32%;
+top: 35.71%;
+bottom: 35.71%;
+
+background: rgba(255, 255, 255, 0.4);
+
+
+/* Route Header */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 6px 16px 12px;
+
+width: 393px;
+height: 106px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Route Card */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 14px 14px 14px 16px;
+gap: 12px;
+
+width: 361px;
+height: 88px;
+
+background: #141917;
+border: 1px solid #28312D;
+border-radius: 20px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Route Points */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 3px;
+
+width: 277px;
+height: 58px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Point A */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 126px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Badge A */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 22px;
+height: 22px;
+
+background: #36F58A;
+border-radius: 11px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* A */
+
+width: 9px;
+height: 13px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 13px;
+
+color: #05130B;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 94px;
+height: 18px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 18px;
+
+color: #AAB4AF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Connector */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 22px;
+height: 8px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Line */
+
+width: 2px;
+height: 8px;
+
+background: #28312D;
+border-radius: 1px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Point B */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 70px;
+height: 22px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Badge B */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 22px;
+height: 22px;
+
+border: 1.5px solid #36F58A;
+border-radius: 11px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* B */
+
+width: 8px;
+height: 13px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 13px;
+
+color: #36F58A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 38px;
+height: 18px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 18px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Menu Button */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 40px;
+height: 40px;
+
+background: #1D2421;
+border: 1px solid #28312D;
+border-radius: 20px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* icon/menu */
+
+width: 20px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 15%;
+right: 15%;
+top: 30%;
+bottom: 30%;
+
+border: 1.8px solid #AAB4AF;
+
+
+/* Map */
+
+width: 393px;
+height: 577px;
+
+background: #1A211E;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Map Base */
+
+position: absolute;
+width: 393px;
+height: 577px;
+left: 0px;
+top: 0px;
+
+
+
+/* Block */
+
+position: absolute;
+width: 116px;
+height: 59px;
+left: -10px;
+top: -10px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 116px;
+height: 96px;
+left: -10px;
+top: 63px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 116px;
+height: 96px;
+left: -10px;
+top: 173px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 116px;
+height: 140px;
+left: -10px;
+top: 283px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 116px;
+height: 150px;
+left: -10px;
+top: 437px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 158px;
+height: 59px;
+left: 134px;
+top: -10px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 158px;
+height: 96px;
+left: 134px;
+top: 63px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 158px;
+height: 96px;
+left: 134px;
+top: 173px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 158px;
+height: 140px;
+left: 134px;
+top: 283px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 158px;
+height: 150px;
+left: 134px;
+top: 437px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 95px;
+height: 59px;
+left: 308px;
+top: -10px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 95px;
+height: 96px;
+left: 308px;
+top: 63px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 95px;
+height: 96px;
+left: 308px;
+top: 173px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 95px;
+height: 140px;
+left: 308px;
+top: 283px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Block */
+
+position: absolute;
+width: 95px;
+height: 150px;
+left: 308px;
+top: 437px;
+
+background: #0E1211;
+border-radius: 5px;
+
+
+/* Route / travelled */
+
+position: absolute;
+width: 8px;
+height: 239px;
+left: 116px;
+top: 348px;
+
+background: rgba(54, 245, 138, 0.28);
+
+
+/* Route / ahead */
+
+position: absolute;
+width: 8px;
+height: 358px;
+left: 116px;
+top: -10px;
+
+background: #36F58A;
+box-shadow: 0px 0px 14px rgba(54, 245, 138, 0.55);
+border-radius: 4px;
+
+
+/* Intersection 120 m */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 112px;
+top: 268px;
+
+background: #0A0D0C;
+border: 3px solid #36F58A;
+
+
+/* Signal 120 m */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 6px 12px 6px 8px;
+gap: 8px;
+
+position: absolute;
+width: 180px;
+height: 42px;
+left: 146px;
+top: 255px;
+
+background: #141917;
+border: 1px solid rgba(54, 245, 138, 0.6);
+border-radius: 14px;
+
+
+/* Traffic Light */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 3px;
+gap: 2px;
+
+width: 12px;
+height: 28px;
+
+background: #1D2421;
+border-radius: 6px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Red */
+
+width: 6px;
+height: 6px;
+
+background: #FF5C5C;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Amber */
+
+width: 6px;
+height: 6px;
+
+background: #FFC247;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Green */
+
+width: 6px;
+height: 6px;
+
+background: #36F58A;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Distance */
+
+width: 38px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Separator */
+
+width: 3px;
+height: 3px;
+
+background: #6E7974;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Timing */
+
+width: 81px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+color: #36F58A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Intersection 450 m */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 112px;
+top: 158px;
+
+background: #0A0D0C;
+border: 3px solid #36F58A;
+
+
+/* Signal 450 m */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 6px 12px 6px 8px;
+gap: 8px;
+
+position: absolute;
+width: 185px;
+height: 42px;
+left: 146px;
+top: 145px;
+
+background: #141917;
+border: 1px solid #28312D;
+border-radius: 14px;
+
+
+/* Traffic Light */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 3px;
+gap: 2px;
+
+width: 12px;
+height: 28px;
+
+background: #1D2421;
+border-radius: 6px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Red */
+
+width: 6px;
+height: 6px;
+
+background: #FF5C5C;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Amber */
+
+width: 6px;
+height: 6px;
+
+background: #FFC247;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Green */
+
+width: 6px;
+height: 6px;
+
+background: #36F58A;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Distance */
+
+width: 41px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Separator */
+
+width: 3px;
+height: 3px;
+
+background: #6E7974;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Timing */
+
+width: 83px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+color: #36F58A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Intersection 780 m */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 112px;
+top: 48px;
+
+background: #0A0D0C;
+border: 3px solid #36F58A;
+
+
+/* Signal 780 m */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 6px 12px 6px 8px;
+gap: 8px;
+
+position: absolute;
+width: 182px;
+height: 42px;
+left: 146px;
+top: 35px;
+
+background: #141917;
+border: 1px solid #28312D;
+border-radius: 14px;
+
+
+/* Traffic Light */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 3px;
+gap: 2px;
+
+width: 12px;
+height: 28px;
+
+background: #1D2421;
+border-radius: 6px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Red */
+
+width: 6px;
+height: 6px;
+
+background: #FF5C5C;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Amber */
+
+width: 6px;
+height: 6px;
+
+background: #FFC247;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Green */
+
+width: 6px;
+height: 6px;
+
+background: #36F58A;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Distance */
+
+width: 40px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Separator */
+
+width: 3px;
+height: 3px;
+
+background: #6E7974;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Timing */
+
+width: 81px;
+height: 16px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+color: #36F58A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Driver Position */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 44px;
+height: 44px;
+left: 98px;
+top: 326px;
+
+background: rgba(54, 245, 138, 0.18);
+border-radius: 22px;
+
+
+/* Marker */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+width: 28px;
+height: 28px;
+
+background: #36F58A;
+border: 2px solid #FFFFFF;
+border-radius: 14px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* icon/heading */
+
+width: 14px;
+height: 14px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 14.29%;
+right: 14.29%;
+top: 10.71%;
+bottom: 14.29%;
+
+background: #05130B;
+
+
+/* Fade / top */
+
+position: absolute;
+width: 393px;
+height: 28px;
+left: 0px;
+top: 0px;
+
+background: linear-gradient(180deg, #0A0D0C 0%, rgba(10, 13, 12, 0) 100%);
+
+
+/* Fade / bottom */
+
+position: absolute;
+width: 393px;
+height: 120px;
+left: 0px;
+top: 457px;
+
+background: linear-gradient(180deg, rgba(10, 13, 12, 0) 0%, #0A0D0C 100%);
+
+
+/* Recommendation Card */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 20px;
+gap: 16px;
+
+position: absolute;
+height: 168px;
+left: 16px;
+right: 16px;
+bottom: 16px;
+
+background: #141917;
+border: 1.5px solid rgba(54, 245, 138, 0.45);
+box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.5), 0px 0px 32px rgba(54, 245, 138, 0.16);
+border-radius: 24px;
+
+
+/* Speed */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 6px;
+
+width: 214px;
+height: 125px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Label */
+
+width: 141px;
+height: 13px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 13px;
+letter-spacing: 0.08em;
+
+color: #AAB4AF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Value */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: baseline;
+padding: 0px;
+gap: 6px;
+
+width: 136px;
+height: 64px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Speed value */
+
+width: 80px;
+height: 64px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 64px;
+line-height: 64px;
+/* identical to box height, or 100% */
+letter-spacing: -0.02em;
+
+color: #36F58A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Unit */
+
+width: 50px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Supporting text */
+
+width: 214px;
+height: 36px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 18px;
+/* or 138% */
+
+color: #AAB4AF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Green wave progress */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 88px;
+height: 124px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Progress Ring */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 88px;
+height: 88px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Track */
+
+position: absolute;
+width: 88px;
+height: 88px;
+left: 0px;
+top: 0px;
+
+background: #28312D;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Progress 72% */
+
+position: absolute;
+width: 88px;
+height: 88px;
+left: 0px;
+top: 0px;
+
+background: #36F58A;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Percent */
+
+width: 42px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 88px;
+height: 28px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 14px;
+/* or 127% */
+text-align: center;
+
+color: #AAB4AF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Trip Stats */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 12px 16px 4px;
+gap: 8px;
+
+width: 393px;
+height: 81px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Stat Tile */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 12px 14px;
+gap: 2px;
+
+width: 115px;
+height: 65px;
+
+background: #141917;
+border: 1px solid #28312D;
+border-radius: 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Value */
+
+width: 51px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 51px;
+height: 15px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+color: #6E7974;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Stat Tile */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 12px 14px;
+gap: 2px;
+
+width: 115px;
+height: 65px;
+
+background: #141917;
+border: 1px solid #28312D;
+border-radius: 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+
+
+/* Value */
+
+width: 60px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 23px;
+height: 15px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+color: #6E7974;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Stat Tile */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 12px 14px;
+gap: 2px;
+
+width: 115px;
+height: 65px;
+
+background: #141917;
+border: 1px solid #28312D;
+border-radius: 16px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 1;
+
+
+/* Value */
+
+width: 12px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+color: #36F58A;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 70px;
+height: 15px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+color: #6E7974;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Home Indicator */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-end;
+padding: 0px 0px 8px;
+
+width: 393px;
+height: 34px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Bar */
+
+width: 134px;
+height: 5px;
+
+background: #FFFFFF;
+border-radius: 3px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;

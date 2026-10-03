@@ -1,0 +1,28 @@
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/components"
+android:layout_width="1968dp"
+android:layout_height="185dp"
+android:clipToOutline="true"
+android:background="@drawable/components"
+ />
+
+<!-- drawable/components.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="1968dp"
+android:height="185dp"
+android:viewportWidth="1968"
+android:viewportHeight="185"
+ >
+<group>
+<clip-path
+android:pathData="M24 0H1944C1957.25 0 1968 10.7452 1968 24V161C1968 174.255 1957.25 185 1944 185H24C10.7452 185 0 174.255 0 161V24C0 10.7452 10.7452 0 24 0Z"
+/>
+<path
+android:pathData="M0 0V185H1968V0"
+android:fillColor="#0A0D0C"
+/>
+</group>
+</vector>

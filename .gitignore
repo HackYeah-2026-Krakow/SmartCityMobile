@@ -1,0 +1,12 @@
+node_modules/
+.expo/
+dist/
+web-build/
+.env
+.env.*
+*.log
+.DS_Store
+.idea/
+.vscode/
+android/.gradle/
+android/app/build/
