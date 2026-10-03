@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import {
   AppState,
   AppStateStatus,
@@ -47,7 +48,6 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <StatusBar style="light" />
-
       <AppNavigator />
     </SafeAreaProvider>
   );
