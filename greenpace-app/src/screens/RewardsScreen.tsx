@@ -2,14 +2,18 @@ import React from 'react';
 
 import {
   Pressable,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import {
+  SafeAreaView,
+} from 'react-native-safe-area-context';
+
 import { AppCard } from '../components/AppCard';
+import { AppHeader } from '../components/AppHeader';
 
 import {
   availableRewards,
@@ -20,25 +24,22 @@ import { colors } from '../theme/colors';
 
 
 export function RewardsScreen() {
-
   const progress =
     rewardsSummary.points /
     rewardsSummary.monthlyGoal;
 
   return (
-
-    <SafeAreaView style={styles.safeArea}>
-
+    <SafeAreaView
+      style={styles.safeArea}
+      edges={['top']}
+    >
       <ScrollView
+        style={styles.container}
         contentContainerStyle={styles.content}
       >
-
-        <Text style={styles.brand}>
-          ● GREENPACE
-        </Text>
+        <AppHeader />
 
         <AppCard style={styles.balanceCard}>
-
           <Text style={styles.darkLabel}>
             AVAILABLE GREENPOINTS
           </Text>
@@ -46,12 +47,9 @@ export function RewardsScreen() {
           <Text style={styles.balance}>
             {rewardsSummary.points}
           </Text>
-
         </AppCard>
 
-
         <AppCard>
-
           <Text style={styles.title}>
             Monthly goal
           </Text>
@@ -63,7 +61,6 @@ export function RewardsScreen() {
           </Text>
 
           <View style={styles.progressBackground}>
-
             <View
               style={[
                 styles.progressFill,
@@ -73,14 +70,10 @@ export function RewardsScreen() {
                 },
               ]}
             />
-
           </View>
-
         </AppCard>
 
-
         <AppCard>
-
           <Text style={styles.title}>
             Driving streak
           </Text>
@@ -88,12 +81,9 @@ export function RewardsScreen() {
           <Text style={styles.largeValue}>
             {rewardsSummary.streakDays} days
           </Text>
-
         </AppCard>
 
-
         <AppCard>
-
           <Text style={styles.title}>
             CO₂ saved
           </Text>
@@ -101,25 +91,17 @@ export function RewardsScreen() {
           <Text style={styles.largeValue}>
             {rewardsSummary.co2SavedKg} kg
           </Text>
-
         </AppCard>
-
 
         <Text style={styles.sectionTitle}>
           Available rewards
         </Text>
 
-
         {availableRewards.map((reward) => (
-
           <Pressable key={reward.id}>
-
             <AppCard>
-
               <View style={styles.rewardRow}>
-
                 <View>
-
                   <Text style={styles.rewardTitle}>
                     {reward.title}
                   </Text>
@@ -127,45 +109,37 @@ export function RewardsScreen() {
                   <Text style={styles.rewardCost}>
                     {reward.cost} points
                   </Text>
-
                 </View>
 
                 <Text style={styles.chevron}>
                   ›
                 </Text>
-
               </View>
-
             </AppCard>
-
           </Pressable>
-
         ))}
-
       </ScrollView>
-
     </SafeAreaView>
-
   );
 }
 
 
 const styles = StyleSheet.create({
-
   safeArea: {
     flex: 1,
     backgroundColor: colors.background,
   },
 
-  content: {
-    padding: 16,
-    paddingBottom: 40,
-    gap: 14,
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
   },
 
-  brand: {
-    color: colors.primary,
-    fontWeight: '700',
+  content: {
+    paddingHorizontal: 20,
+    paddingTop: 0,
+    paddingBottom: 40,
+    gap: 14,
   },
 
   balanceCard: {
@@ -241,5 +215,4 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 34,
   },
-
 });

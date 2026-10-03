@@ -1,12 +1,15 @@
 import React from 'react';
 
 import {
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+
+import {
+  SafeAreaView,
+} from 'react-native-safe-area-context';
 
 import MapView, {
   Marker,
@@ -14,6 +17,7 @@ import MapView, {
 } from 'react-native-maps';
 
 import { AppCard } from '../components/AppCard';
+import { AppHeader } from '../components/AppHeader';
 
 import {
   mockDriver,
@@ -37,19 +41,17 @@ export function LiveMapScreen() {
   ];
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-
+    <SafeAreaView
+      style={styles.safeArea}
+      edges={['top']}
+    >
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.content}
       >
-
-        <Text style={styles.brand}>
-          ● GREENPACE
-        </Text>
+        <AppHeader />
 
         <AppCard>
-
           <Text style={styles.destinationLabel}>
             CURRENT ROUTE
           </Text>
@@ -61,12 +63,9 @@ export function LiveMapScreen() {
           <Text style={styles.routeMeta}>
             {mockDriver.distanceKm} km · {mockDriver.etaMinutes} min
           </Text>
-
         </AppCard>
 
-
         <View style={styles.mapContainer}>
-
           <MapView
             style={styles.map}
             initialRegion={{
@@ -76,7 +75,6 @@ export function LiveMapScreen() {
               longitudeDelta: 0.045,
             }}
           >
-
             <Marker
               coordinate={{
                 latitude: mockDriver.latitude,
@@ -86,7 +84,6 @@ export function LiveMapScreen() {
             />
 
             {mockIntersections.map((intersection) => (
-
               <Marker
                 key={intersection.id}
                 coordinate={{
@@ -96,7 +93,6 @@ export function LiveMapScreen() {
                 title={intersection.name}
                 description={`${intersection.distanceMeters} m`}
               />
-
             ))}
 
             <Polyline
@@ -104,20 +100,15 @@ export function LiveMapScreen() {
               strokeColor={colors.primary}
               strokeWidth={6}
             />
-
           </MapView>
-
         </View>
 
-
         <AppCard style={styles.speedCard}>
-
           <Text style={styles.label}>
             RECOMMENDED SPEED
           </Text>
 
           <View style={styles.speedRow}>
-
             <Text style={styles.speed}>
               {mockDriver.recommendedSpeed}
             </Text>
@@ -125,33 +116,25 @@ export function LiveMapScreen() {
             <Text style={styles.speedUnit}>
               km/h
             </Text>
-
           </View>
 
           <Text style={styles.description}>
             Maintain this speed to improve your chance
             of reaching the next green light.
           </Text>
-
         </AppCard>
-
 
         <Text style={styles.sectionTitle}>
           Upcoming intersections
         </Text>
 
-
         {mockIntersections.map((intersection) => (
-
           <AppCard
             key={intersection.id}
             style={styles.intersectionCard}
           >
-
             <View style={styles.row}>
-
               <View>
-
                 <Text style={styles.intersectionName}>
                   {intersection.name}
                 </Text>
@@ -159,12 +142,9 @@ export function LiveMapScreen() {
                 <Text style={styles.meta}>
                   {intersection.distanceMeters} m away
                 </Text>
-
               </View>
 
-
               <View style={styles.status}>
-
                 <View
                   style={[
                     styles.light,
@@ -182,24 +162,17 @@ export function LiveMapScreen() {
                 <Text style={styles.seconds}>
                   {intersection.secondsRemaining}s
                 </Text>
-
               </View>
-
             </View>
-
           </AppCard>
-
         ))}
-
       </ScrollView>
-
     </SafeAreaView>
   );
 }
 
 
 const styles = StyleSheet.create({
-
   safeArea: {
     flex: 1,
     backgroundColor: colors.background,
@@ -211,16 +184,10 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    padding: 16,
+    paddingHorizontal: 20,
+    paddingTop: 0,
     paddingBottom: 40,
     gap: 14,
-  },
-
-  brand: {
-    color: colors.primary,
-    fontWeight: '700',
-    letterSpacing: 1.5,
-    marginBottom: 4,
   },
 
   destinationLabel: {
@@ -325,5 +292,4 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: '600',
   },
-
 });

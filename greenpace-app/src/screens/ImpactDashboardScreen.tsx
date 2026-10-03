@@ -1,14 +1,18 @@
 import React from 'react';
 
 import {
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import {
+  SafeAreaView,
+} from 'react-native-safe-area-context';
+
 import { AppCard } from '../components/AppCard';
+import { AppHeader } from '../components/AppHeader';
 
 import {
   impactMetrics,
@@ -22,15 +26,16 @@ export function ImpactDashboardScreen() {
 
   return (
 
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView
+  style={styles.safeArea}
+  edges={['top']}
+>
 
       <ScrollView
         contentContainerStyle={styles.content}
       >
 
-        <Text style={styles.brand}>
-          ● GREENPACE
-        </Text>
+        <AppHeader />
 
         <Text style={styles.title}>
           Your impact

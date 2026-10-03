@@ -1,17 +1,22 @@
 import React from 'react';
 
 import {
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import {
+  SafeAreaView,
+} from 'react-native-safe-area-context';
+
 import MapView, {
   Marker,
   Polyline,
 } from 'react-native-maps';
+
+import { AppHeader } from '../components/AppHeader';
 
 import { AppCard } from '../components/AppCard';
 
@@ -37,16 +42,17 @@ export function LiveMapScreen() {
   ];
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView
+  style={styles.safeArea}
+  edges={['top']}
+>
 
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.content}
       >
 
-        <Text style={styles.brand}>
-          ● GREENPACE
-        </Text>
+        <AppHeader />
 
         <AppCard>
 
