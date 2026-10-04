@@ -1,6 +1,4 @@
-import React, {
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 
 import {
   Modal,
@@ -20,6 +18,8 @@ import ConfettiCannon from 'react-native-confetti-cannon';
 import { AppCard } from '../components/AppCard';
 import { AppHeader } from '../components/AppHeader';
 
+import { useDriverProfile } from '../context/DriverProfileContext';
+
 import {
   availableRewards,
   mockRanking,
@@ -31,6 +31,8 @@ import { colors } from '../theme/colors';
 
 
 export function RewardsScreen() {
+  const { profile } = useDriverProfile();
+
   const [points, setPoints] = useState(
     rewardsSummary.points
   );
@@ -70,7 +72,7 @@ export function RewardsScreen() {
       selectedReward.durationDays
     ) {
       return (
-        `Your vehicle ${rewardsSummary.vehicle.registrationNumber} ` +
+        `Your vehicle ${profile.registration} ` +
         `is already stored in GreenPace. ` +
         `For the next ${selectedReward.durationDays} ` +
         `${selectedReward.durationDays === 1 ? 'day' : 'days'}, ` +
@@ -204,7 +206,9 @@ export function RewardsScreen() {
                     styles.currentUserText,
                 ]}
               >
-                {entry.name}
+                {entry.isCurrentUser
+                  ? profile.nickname
+                  : entry.name}
               </Text>
 
               <Text

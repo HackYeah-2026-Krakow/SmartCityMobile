@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import {
   AppState,
   AppStateStatus,
@@ -11,8 +10,13 @@ import * as NavigationBar from 'expo-navigation-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { AppNavigator } from './src/navigation/AppNavigator';
+import { DriverProfileModal } from './src/components/DriverProfileModal';
+import { DriverProfileProvider } from './src/context/DriverProfileContext';
 
 export default function App() {
+  const [profileModalVisible, setProfileModalVisible] =
+    useState(true);
+
   useEffect(() => {
     if (Platform.OS !== 'android') {
       return;
@@ -40,15 +44,21 @@ export default function App() {
       }
     );
 
-    return () => {
-      subscription.remove();
-    };
+    return () => subscription.remove();
   }, []);
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="light" />
-      <AppNavigator />
+      <DriverProfileProvider>
+        <StatusBar style="light" />
+
+        <AppNavigator />
+
+        <DriverProfileModal
+          visible={profileModalVisible}
+          onClose={() => setProfileModalVisible(false)}
+        />
+      </DriverProfileProvider>
     </SafeAreaProvider>
   );
 }
