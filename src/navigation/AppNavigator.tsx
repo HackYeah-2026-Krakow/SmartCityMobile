@@ -12,9 +12,7 @@ import {
   Ionicons,
 } from '@expo/vector-icons';
 
-import {
-  LiveMapScreen,
-} from '../screens/LiveMapScreen';
+import LiveMapScreen from '../screens/LiveMapScreen';
 
 import {
   ImpactDashboardScreen,
