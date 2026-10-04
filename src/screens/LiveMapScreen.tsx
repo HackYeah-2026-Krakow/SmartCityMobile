@@ -1,265 +1,154 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
+  KeyboardAvoidingView, LayoutChangeEvent, Platform, StyleSheet, Text, View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import {LightCallout } from '../components/Lightcallout';
+import {MapBackdrop } from '../components/MapBackdrop';
+import {RouteHeader } from '../components/RouteHeader';
+import {RouteLine } from '../components/RoutineLine';
+import {RouteNode } from '../components/RouteNode';
+import {SpeedCard } from '../components/SpeedCar';
+import {StatTile } from '../components/StatTile';
+import {VehicleMarker } from '../components/VehicleMarker';
+import { useGreenWave } from '../hooks/useGreenWave';
+import { RouteSearchForm } from '../components/RouteSearchForm';
+import { getRoute } from '../services/routing';
+import { colors } from '../theme/tokens';
+import { Route } from '../types';
 
-import {
-  SafeAreaView,
-} from 'react-native-safe-area-context';
+const LINE_X = 0.305; // route line position across the screen
+const NODE = 22;
+const CALLOUT_GAP = 22;
 
-import { RouteMap } from '../components/RouteMap';
+type GuidanceProps = { trip: Route; onEdit: () => void };
 
-import { AppCard } from '../components/AppCard';
-import { AppHeader } from '../components/AppHeader';
+function LiveGuidance({ trip, onEdit }: GuidanceProps) {
+  const g = useGreenWave(trip);
+  const [mapH, setMapH] = useState(0);
+  const [mapW, setMapW] = useState(0);
 
-import {
-  mockDriver,
-  mockIntersections,
-} from '../data/mockTraffic';
+  const onLayout = (e: LayoutChangeEvent) => {
+    setMapH(e.nativeEvent.layout.height);
+    setMapW(e.nativeEvent.layout.width);
+  };
 
-import { colors } from '../theme/colors';
-
-
-export function LiveMapScreen() {
-  const routeCoordinates = [
-    {
-      latitude: mockDriver.latitude,
-      longitude: mockDriver.longitude,
-    },
-
-    ...mockIntersections.map((intersection) => ({
-      latitude: intersection.latitude,
-      longitude: intersection.longitude,
-    })),
-  ];
+  const vehicleBottom = 8;
+  const firstY = 36;
+  const lastY = mapH - 60 - vehicleBottom - 52;
+  const step = g.lights.length > 1 ? (lastY - firstY) / (g.lights.length - 1) : 0;
+  const lineLeft = mapW * LINE_X;
 
   return (
-    <SafeAreaView
-      style={styles.safeArea}
-      edges={['top']}
-    >
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.content}
-      >
-        <AppHeader />
-
-        <AppCard>
-          <Text style={styles.destinationLabel}>
-            CURRENT ROUTE
-          </Text>
-
-          <Text style={styles.destination}>
-            {mockDriver.destination}
-          </Text>
-
-          <Text style={styles.routeMeta}>
-            {mockDriver.distanceKm} km · {mockDriver.etaMinutes} min
-          </Text>
-        </AppCard>
-
-        <View style={styles.mapContainer}>
-          <RouteMap
-            driver={{
-              latitude: mockDriver.latitude,
-              longitude: mockDriver.longitude,
-            }}
-            intersections={mockIntersections}
-            routeCoordinates={routeCoordinates}
-          />
+    <View style={s.root}>
+      <SafeAreaView style={s.safe} edges={['top']}>
+        <View style={s.header}>
+          <RouteHeader from={trip.fromLabel} to={trip.toLabel} onMenuPress={onEdit} />
         </View>
 
-        <AppCard style={styles.speedCard}>
-          <Text style={styles.label}>
-            RECOMMENDED SPEED
-          </Text>
+        <View style={s.map} onLayout={onLayout}>
+          <MapBackdrop />
+          <RouteLine left={`${LINE_X * 100}%`} />
 
-          <View style={styles.speedRow}>
-            <Text style={styles.speed}>
-              {mockDriver.recommendedSpeed}
-            </Text>
+          {mapH > 0 &&
+            g.lights.map((l, i) => {
+              const y = firstY + i * step;
+              return (
+                <View key={l.id}>
+                  <View style={[s.abs, { left: lineLeft - NODE / 2, top: y - NODE / 2 }]}>
+                    <RouteNode />
+                  </View>
+                  <View style={[s.abs, { left: lineLeft + NODE / 2 + CALLOUT_GAP, top: y - 24 }]}>
+                    <LightCallout
+                      distanceM={l.distanceM}
+                      greenInS={l.greenInS}
+                      phase={l.phase}
+                      highlighted={l.isNext}
+                    />
+                  </View>
+                </View>
+              );
+            })}
 
-            <Text style={styles.speedUnit}>
-              km/h
-            </Text>
+          <View style={[s.abs, { left: lineLeft - 30, bottom: vehicleBottom }]}>
+            <VehicleMarker />
           </View>
+        </View>
 
-          <Text style={styles.description}>
-            Maintain this speed to improve your chance
-            of reaching the next green light.
-          </Text>
-        </AppCard>
-
-        <Text style={styles.sectionTitle}>
-          Upcoming intersections
-        </Text>
-
-        {mockIntersections.map((intersection) => (
-          <AppCard
-            key={intersection.id}
-            style={styles.intersectionCard}
-          >
-            <View style={styles.row}>
-              <View>
-                <Text style={styles.intersectionName}>
-                  {intersection.name}
-                </Text>
-
-                <Text style={styles.meta}>
-                  {intersection.distanceMeters} m away
-                </Text>
-              </View>
-
-              <View style={styles.status}>
-                <View
-                  style={[
-                    styles.light,
-                    {
-                      backgroundColor:
-                        intersection.trafficLight === 'green'
-                          ? colors.primary
-                          : intersection.trafficLight === 'amber'
-                          ? colors.amber
-                          : colors.red,
-                    },
-                  ]}
-                />
-
-                <Text style={styles.seconds}>
-                  {intersection.secondsRemaining}s
-                </Text>
-              </View>
-            </View>
-          </AppCard>
-        ))}
-      </ScrollView>
-    </SafeAreaView>
+        <View style={s.bottom}>
+          <SpeedCard speedKmh={g.speedKmh} progress={g.progress} />
+          <View style={s.stats}>
+            <StatTile
+              value={`${g.remainingKm >= 10 ? Math.round(g.remainingKm) : g.remainingKm.toFixed(1)} km`}
+              label="Distance"
+            />
+            <StatTile value={`${g.etaMin} min`} label="ETA" />
+            <StatTile value={`${g.greenLights}`} label="Green lights" accent />
+          </View>
+        </View>
+      </SafeAreaView>
+    </View>
   );
 }
 
+// React Navigation injects its own `route` / `navigation` props into tab
+// screens, so the trip data is called `trip` here.
+export default function LiveMapScreen() {
+  const [trip, setTrip] = useState<Route | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [last, setLast] = useState({ from: '', to: '' });
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
+  const start = async (from: string, to: string) => {
+    setLoading(true);
+    setError(null);
+    setLast({ from, to });
+    try {
+      setTrip(await getRoute(from, to));
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Could not find that route. Check the addresses and try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
+  if (trip) {
+    return <LiveGuidance key={`${trip.fromLabel}-${trip.toLabel}`} trip={trip} onEdit={() => setTrip(null)} />;
+  }
 
-  content: {
-    paddingHorizontal: 20,
-    paddingTop: 0,
-    paddingBottom: 40,
-    gap: 14,
-  },
+  return (
+    <View style={s.root}>
+      <SafeAreaView style={s.safe} edges={['top']}>
+        <KeyboardAvoidingView
+          style={s.plan}
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        >
+          <View>
+            <Text style={s.title}>Plan your route</Text>
+            <Text style={s.subtitle}>We'll time your speed so you catch green lights.</Text>
+          </View>
+          <RouteSearchForm
+            initialFrom={last.from}
+            initialTo={last.to}
+            loading={loading}
+            error={error}
+            onSubmit={start}
+          />
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </View>
+  );
+}
 
-  destinationLabel: {
-    color: colors.textSecondary,
-    fontSize: 11,
-  },
-
-  destination: {
-    color: colors.white,
-    fontSize: 20,
-    fontWeight: '700',
-    marginTop: 4,
-  },
-
-  routeMeta: {
-    color: colors.textSecondary,
-    marginTop: 6,
-  },
-
-  mapContainer: {
-    height: 310,
-    borderRadius: 22,
-    overflow: 'hidden',
-  },
-
-  map: {
-    flex: 1,
-  },
-
-  speedCard: {
-    padding: 18,
-  },
-
-  label: {
-    color: colors.textSecondary,
-    fontSize: 11,
-    letterSpacing: 1,
-  },
-
-  speedRow: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-  },
-
-  speed: {
-    color: colors.primary,
-    fontSize: 58,
-    fontWeight: '800',
-  },
-
-  speedUnit: {
-    color: colors.white,
-    fontSize: 18,
-    marginLeft: 7,
-  },
-
-  description: {
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-
-  sectionTitle: {
-    color: colors.white,
-    fontSize: 18,
-    fontWeight: '700',
-    marginTop: 4,
-  },
-
-  intersectionCard: {
-    padding: 14,
-  },
-
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-
-  intersectionName: {
-    color: colors.white,
-    fontWeight: '600',
-  },
-
-  meta: {
-    color: colors.textSecondary,
-    marginTop: 4,
-  },
-
-  status: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-
-  light: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-  },
-
-  seconds: {
-    color: colors.white,
-    fontWeight: '600',
-  },
+const s = StyleSheet.create({
+  plan: { flex: 1, paddingHorizontal: 22, paddingTop: 48, gap: 32 },
+  title: { color: colors.text, fontSize: 32, fontWeight: '800', letterSpacing: -0.5 },
+  subtitle: { color: colors.textMuted, fontSize: 16, lineHeight: 23, marginTop: 8 },
+  root: { flex: 1, backgroundColor: colors.bg },
+  safe: { flex: 1 },
+  header: { paddingHorizontal: 22, paddingTop: 12, zIndex: 2 },
+  map: { flex: 1, marginTop: -8 },
+  abs: { position: 'absolute' },
+  bottom: { paddingHorizontal: 22, gap: 14, paddingBottom: 8 },
+  stats: { flexDirection: 'row', gap: 12 },
 });
